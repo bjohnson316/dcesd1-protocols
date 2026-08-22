@@ -186,7 +186,7 @@
   <div class="rbot">
     <div class="rbot-in">
       <button class="nav" id="rPrev">&#8592; Prev</button>
-      <button class="counter" id="rJump"><div class="c"><b id="rCur">1</b><span id="rTot"> / 218</span></div><div class="j">Jump</div></button>
+      <button class="counter" id="rJump"><div class="c"><b id="rCur">1</b><span id="rTot"> / 217</span></div><div class="j">Jump</div></button>
       <button class="nav" id="rNext">Next &#8594;</button>
     </div>
   </div>
@@ -198,7 +198,7 @@
   <div class="grip"></div>
   <h4>Go to page</h4>
   <div class="jrow">
-    <input id="jumpInput" type="number" inputmode="numeric" min="1" max="218" placeholder="1&ndash;218" />
+    <input id="jumpInput" type="number" inputmode="numeric" min="1" max="217" placeholder="1&ndash;217" />
     <button class="go" id="jumpGo">Go</button>
   </div>
   <div class="note">Pages match the printed protocol book. Pinch to zoom any page.</div>
@@ -245,7 +245,7 @@
 
   function homeView(){
     var quick=[
-      {t:'Cardiac arrest',pg:45,c:SECMAP.adult.color}
+      {t:'Cardiac arrest',pg:44,c:SECMAP.adult.color}
     ];
     var h='';
     h+='<div class="wrap">';
@@ -255,7 +255,7 @@
       +'<svg class="i" viewBox="0 0 100 100"><g fill="#2FB6E0"><rect x="38" y="8" width="24" height="84" rx="6"/>'
       +'<rect x="38" y="8" width="24" height="84" rx="6" transform="rotate(60 50 50)"/>'
       +'<rect x="38" y="8" width="24" height="84" rx="6" transform="rotate(120 50 50)"/><circle cx="50" cy="50" r="15"/></g></svg>'
-      +'<div class="tx" style="flex:1"><b>Save for offline use</b><p id="installMsg">Cache all 218 pages so protocols work with no signal.</p>'
+      +'<div class="tx" style="flex:1"><b>Save for offline use</b><p id="installMsg">Cache all 217 pages so protocols work with no signal.</p>'
       +'<div class="pbar" id="pbar"><i id="pbarFill"></i></div></div>'
       +'<button class="go" id="cacheBtn" style="padding:9px 14px;border-radius:11px;background:var(--brand);color:#04222b;font-weight:800;font-size:13px;flex:0 0 auto">Save</button>'
       +'</div>';
@@ -273,7 +273,7 @@
         +'<div class="meta"><span class="cnt">'+cnt+' protocols</span><span class="dot"></span></div></button>';
     });
     h+='</div>';
-    h+='<div class="disclaimer"><b>Denton County ESD 1 &amp; 2 EMS.</b> Digital companion to the 2026 BEST EMS Protocols (Robert J. Hancock, DO FACEP, Medical Director). '
+    h+='<div class="disclaimer"><b>Denton County ESD 1 &amp; 2 EMS.</b> Digital companion to the 2026 BEST EMS Protocols (Josh Holland, D.O., Medical Director; effective Aug 19, 2026). '
       +'Page images are reproduced from the official protocol document. Follow your current credentialing and the governing printed protocols.</div>';
     h+='</div>';
     app.innerHTML=h;

@@ -1,15 +1,15 @@
 # Denton County ESD 1 & 2 EMS Protocols 2026 — Mobile App
 
 A self-contained, installable, **offline** field reference for the Denton County
-ESD 1 & 2 (BEST EMS) Treatment Protocols, effective July 1, 2026 (Medical Director
-Robert J. Hancock, DO FACEP). Runs on iPhone and Android as an installable web app
+ESD 1 & 2 (BEST EMS) Treatment Protocols, effective August 19, 2026 (Medical Director
+Josh Holland, D.O.). Runs on iPhone and Android as an installable web app
 (PWA). Every page is shown as a faithful image of the official PDF, so drug doses
 and layout are never re-typed or rearranged.
 
 ## What's in the folder
 - `index.html` — the app
 - `data.js` — protocol index + search text
-- `images/` — 218 page images (the actual protocols)
+- `images/` — 217 page images (the actual protocols)
 - `icons/`, `manifest.webmanifest`, `sw.js` — app icon + offline support
 
 ## How to put it on your phone (GitHub Pages)
@@ -23,7 +23,7 @@ and layout are never re-typed or rearranged.
 5. Open it from the new home-screen icon. It now runs full-screen like a native app.
 
 ## Make it work with no signal
-On the home screen, tap **"Save for offline."** It downloads all 218 pages into the
+On the home screen, tap **"Save for offline."** It downloads all 217 pages into the
 app (about 25 MB). After that the whole protocol set works with **zero cell service**.
 
 ## Using it

@@ -1,5 +1,5 @@
 // Denton County ESD 1 & 2 EMS Protocols — offline service worker
-const CACHE = 'dcesd-protocols-v1';
+const CACHE = 'dcesd-protocols-v2';
 const SHELL = [
   './',
   './index.html',

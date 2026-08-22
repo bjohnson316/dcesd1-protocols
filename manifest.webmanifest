@@ -1,7 +1,7 @@
 {
   "name": "Denton County ESD 1 & 2 EMS Protocols 2026",
   "short_name": "DCESD Protocols",
-  "description": "Denton County ESD 1 & 2 EMS (BEST EMS) Treatment Protocols, effective July 1, 2026.",
+  "description": "Denton County ESD 1 & 2 EMS (BEST EMS) Treatment Protocols, effective August 19, 2026.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
