@@ -186,7 +186,7 @@
   <div class="rbot">
     <div class="rbot-in">
       <button class="nav" id="rPrev">&#8592; Prev</button>
-      <button class="counter" id="rJump"><div class="c"><b id="rCur">1</b><span id="rTot"> / 217</span></div><div class="j">Jump</div></button>
+      <button class="counter" id="rJump"><div class="c"><b id="rCur">1</b><span id="rTot"> / 216</span></div><div class="j">Jump</div></button>
       <button class="nav" id="rNext">Next &#8594;</button>
     </div>
   </div>
@@ -198,7 +198,7 @@
   <div class="grip"></div>
   <h4>Go to page</h4>
   <div class="jrow">
-    <input id="jumpInput" type="number" inputmode="numeric" min="1" max="217" placeholder="1&ndash;217" />
+    <input id="jumpInput" type="number" inputmode="numeric" min="1" max="216" placeholder="1&ndash;216" />
     <button class="go" id="jumpGo">Go</button>
   </div>
   <div class="note">Pages match the printed protocol book. Pinch to zoom any page.</div>
@@ -241,7 +241,8 @@
   }
 
   // ---- views ----
-  function pageBadge(p){return '<div class="pg"><div class="n mono">'+p+'</div><div class="l">Page</div></div>';}
+  function pnum(n){return n>1?(n-1):'i';}
+  function pageBadge(p){return '<div class="pg"><div class="n mono">'+pnum(p)+'</div><div class="l">Page</div></div>';}
 
   function homeView(){
     var quick=[
@@ -355,7 +356,7 @@
     var c=SECMAP[p.section].color, span=p.end>p.start?(' &middot; pp. '+p.start+'&ndash;'+p.end):'';
     return '<button class="item" style="--c:'+c+'" data-pg="'+p.start+'">'
       +'<span class="edge"></span><div class="body"><div class="ttl">'+hl(p.title,q)+'</div>'
-      +'<div class="sub"><span class="tag">'+esc(SECMAP[p.section].name)+'</span><span>'+(p.end>p.start?('Pages '+p.start+'&ndash;'+p.end):('Page '+p.start))+'</span></div></div>'
+      +'<div class="sub"><span class="tag">'+esc(SECMAP[p.section].name)+'</span><span>'+(p.end>p.start?('Pages '+pnum(p.start)+'&ndash;'+pnum(p.end)):('Page '+pnum(p.start)))+'</span></div></div>'
       +pageBadge(p.start)+'</button>';
   }
   function bindRows(){
@@ -392,7 +393,7 @@
         var p=protocolForPage(pg), c=SECMAP[p.section].color;
         h+='<button class="item" style="--c:'+c+'" data-pg="'+pg+'">'
           +'<span class="edge"></span><div class="body"><div class="ttl">'+esc(p.title)+'</div>'
-          +'<div class="sub"><span class="tag">'+esc(SECMAP[p.section].name)+'</span><span>Page '+pg+'</span></div></div>'
+          +'<div class="sub"><span class="tag">'+esc(SECMAP[p.section].name)+'</span><span>Page '+pnum(pg)+'</span></div></div>'
           +pageBadge(pg)+'</button>';
       });
       h+='</div>';
@@ -417,8 +418,8 @@
     document.getElementById('rTitle').textContent=p.title;
     var sec=document.getElementById('rSec'); sec.textContent=SECMAP[p.section].name; sec.style.color=c;
     rImg.src='images/p-'+pad(n)+'.jpg';
-    document.getElementById('rCur').textContent=n;
-    document.getElementById('rTot').textContent=' / '+TOTAL_PAGES;
+    document.getElementById('rCur').textContent=(n>1?(n-1):'Cover');
+    document.getElementById('rTot').textContent=' / '+(TOTAL_PAGES-1);
     document.getElementById('rPrev').disabled=(n<=1);
     document.getElementById('rNext').disabled=(n>=TOTAL_PAGES);
     var st=document.getElementById('rStar'); st.classList.toggle('on',isMarked(n)); st.innerHTML=isMarked(n)?'&#9733;':'&#9734;';
@@ -455,11 +456,11 @@
   var sheetBg=document.getElementById('sheetBg'),jumpSheet=document.getElementById('jumpSheet'),
       jumpInput=document.getElementById('jumpInput');
   function openSheet(){sheetBg.classList.add('show');jumpSheet.classList.add('show');
-    jumpInput.value=curPage;setTimeout(function(){jumpInput.select();},120);}
+    jumpInput.value=(curPage>1?curPage-1:"");setTimeout(function(){jumpInput.select();},120);}
   function closeSheet(){sheetBg.classList.remove('show');jumpSheet.classList.remove('show');}
   document.getElementById('rJump').onclick=openSheet;
   sheetBg.onclick=closeSheet;
-  function doJump(){var v=parseInt(jumpInput.value,10);if(v>=1&&v<=TOTAL_PAGES){closeSheet();history.replaceState(null,'','#read='+v);showReader(v);}}
+  function doJump(){var v=parseInt(jumpInput.value,10);if(v>=1&&v<=TOTAL_PAGES-1){var s=v+1;closeSheet();history.replaceState(null,'','#read='+s);showReader(s);}}
   document.getElementById('jumpGo').onclick=doJump;
   jumpInput.addEventListener('keydown',function(e){if(e.key==='Enter')doJump();});
 
